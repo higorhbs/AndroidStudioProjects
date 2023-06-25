@@ -1,6 +1,6 @@
 {
-    "name": "ola_mundo",
-    "short_name": "ola_mundo",
+    "name": "pingpong",
+    "short_name": "pingpong",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

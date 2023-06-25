@@ -1,4 +1,4 @@
-package com.example.ola_mundo
+package com.example.pingpong
 
 import io.flutter.embedding.android.FlutterActivity
 
