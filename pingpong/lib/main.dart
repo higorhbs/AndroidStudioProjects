@@ -56,10 +56,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: const Color.fromARGB(255, 153, 76, 70), //cor de fundo do body
       appBar: AppBar(
 
-        backgroundColor: Colors.blue,
+        backgroundColor: Color.fromARGB(255, 56, 5, 1), //cor de fundo do header
+
 
         title: Text(widget.title),
       ),
