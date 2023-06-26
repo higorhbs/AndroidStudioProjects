@@ -1,130 +1,60 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+void main () {
+  runApp(const PingPong ());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class PingPong extends StatelessWidget {
+  const PingPong ({key ? key}) : super (key : key);
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Placar Ping Pong'),
-    );
-  }
+Widget @override
+Widget build(BuildContext context) {
+  return MaterialApp(
+    title: 'PingPong',
+    debugShowCheckedModeBanner: false,
+    theme: ThemeData(primarySwatch: Colors.deepPurple),
+    home: const MyHomePage (),
+  );
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+}
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter1 = 0;
-  int _counter2 = 0;
-
-  void _incrementCounter1() {
-    setState(() {
-      if(_counter1 == 10){
-      _counter2 =0;
-      _counter1 =0;
-      }
-      else{
-    _counter1++;        
-      }
-    });
-  }
-  void _incrementCounter2() {
-    setState(() {
-      if(_counter2 == 10){
-      _counter2 =0;
-      _counter1 =0;
-      }
-      else{
-    _counter2++;        
-      }
-
-    });
-  }
-  void _zeraCounter(){
-    setState(() {
-      _counter1 = 0;
-      _counter2 = 0;
-    });
-  }
-
-
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      backgroundColor: const Color.fromARGB(255, 153, 76, 70), //cor de fundo do body
       appBar: AppBar(
-        
-        backgroundColor: Color.fromARGB(255, 253, 253, 253), //cor de fundo do header
-
-
-        title: Text(widget.title),
+        title: const Text('Atrações'),
       ),
-      body: Center(
- 
-        child: Column(
-          
-
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Player 1:',
-            ),
-            Text(
-              '$_counter1',
-              style: Theme.of(context).textTheme.headlineLarge,
-            ),
-            const Text(
-              'Player 2:',
-            ),
-            Text(
-              '$_counter2',
-              style: Theme.of(context).textTheme.headlineLarge,
-            ),
-          ],
-        ),
-      ),
-
-       floatingActionButton: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 150, // Largura do botão
-              height: 150, // Altura do botão 
-            ),
-            FloatingActionButton(
-              onPressed: (_incrementCounter1),
-              child: Icon(Icons.add),
-            ),
- 
-            FloatingActionButton(
-              onPressed: (_incrementCounter2),
-              child: Icon(Icons.add),
-            ),
-            FloatingActionButton(
-              onPressed: (_zeraCounter),
-              child: Icon(Icons.delete),
-            ),
-          ],
-        ),
-
+      body: const Placeholder(),
     );
   }
 }
+class Atracao {
+  final String nome;
+  final int dia;
+  final List<String> tags;
+
+  const Atracao(this.nome, this.dia, this.tags);
+}
+
+const listaAtracoes = [
+  Atracao("Iron Maiden", 2, ["Espetaculo", "Fas", "NovoAlbum"]),
+  Atracao("Alok", 3, ["Influente", "Top", "Show"]),
+  Atracao("Justin Bieber", 4, ["TopCharts", "Hits", "PríncipeDoPOP"]),
+  Atracao("Guns N’ Roses", 8, ["Sucesso", "Espetáculo", "Fas"]),
+  Atracao("Capital Inicial", 9, ["2019", "Novo Álbum", "Fas"]),
+  Atracao("Green Day", 9, ["Sucesso", "Reconhecimento", "Show"]),
+  Atracao("Cold Play", 10, ["NovoAlbum", "Sucesso", "2011"]),
+  Atracao("Ivete Sangalo", 10, ["Unica", "Carreiras", "Fas"]),
+  Atracao("Racionais", 3, ["Hits", "Prêmios", "Respeito"]),
+  Atracao("Gloria Groove", 8, ["Streams", "Representatividade", "Sucesso"]),
+  Atracao("Avril Lavigne", 9, ["Estreia", "Sucesso", "Lançamento"]),
+  Atracao("Ludmilla", 10, ["Representativade", "Sucesso", "Parcerias"]),
+];
