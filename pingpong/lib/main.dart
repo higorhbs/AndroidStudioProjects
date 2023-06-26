@@ -36,12 +36,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter1() {
     setState(() {
-      _counter1++;
+      if(_counter1 == 10){
+      _counter2 =0;
+      _counter1 =0;
+      }
+      else{
+    _counter1++;        
+      }
     });
   }
   void _incrementCounter2() {
     setState(() {
-      _counter2++;
+      if(_counter2 == 10){
+      _counter2 =0;
+      _counter1 =0;
+      }
+      else{
+    _counter2++;        
+      }
+
     });
   }
   void _zeraCounter(){
@@ -54,12 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+      
       backgroundColor: const Color.fromARGB(255, 153, 76, 70), //cor de fundo do body
       appBar: AppBar(
-
-        backgroundColor: Color.fromARGB(255, 56, 5, 1), //cor de fundo do header
+        
+        backgroundColor: Color.fromARGB(255, 253, 253, 253), //cor de fundo do header
 
 
         title: Text(widget.title),
@@ -67,6 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
  
         child: Column(
+          
 
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -75,14 +89,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter1',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
             const Text(
               'Player 2:',
             ),
             Text(
               '$_counter2',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
           ],
         ),
