@@ -16,7 +16,7 @@ class PerguntaAppState extends State<PerguntaApp> {
   Widget build(BuildContext context) {
     final perguntas = [
       'Escolha seu usuário',
-      'Qual é o seu animal favorito?',
+      'Pontuação da Partida',
     ];
 
     return MaterialApp(
