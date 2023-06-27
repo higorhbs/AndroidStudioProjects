@@ -27,6 +27,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+     final jogadorEscolhido = 0;
+     void escolhaJogador(){
+  }
 
 @override
   Widget build(BuildContext context) {
@@ -40,37 +43,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: <Widget>[
           Text(jogadores.elementAt(0)),
-        ElevatedButton(onPressed: null, child: Text('Higor')),
-        ElevatedButton(onPressed: null, child: Text('Victor')),
-        ElevatedButton(onPressed: null, child: Text('Laura')),
-        ElevatedButton(onPressed: null, child: Text('Outro')),
+        ElevatedButton(onPressed: escolhaJogador, child: const Text('Higor')),
+        ElevatedButton(onPressed: escolhaJogador, child: const Text('Victor')),
+        ElevatedButton(onPressed: escolhaJogador, child: Text('Laura')),
+        ElevatedButton(onPressed: escolhaJogador, child: Text('Outro')),
         ],
       )
-
-
-  //    ListView.builder(
-  //       itemCount: listPlayers.length,
-  //      itemBuilder: (context, index) {
-  //  return ListTile(
-  //     title: Text(listPlayers[index].nome),
-  //   );
-  // },
-  //    ),
     );
   }
 }
-
-// class Player {
-//   final String nome;
-//   final int dia;
-//   final List<String> tags;
-
-//   const Player(this.nome, this.dia, this.tags);
-// }
-
-// const listPlayers = [
-//   Player("Higor", 2, ["Espetaculo", "Fas", "NovoAlbum"]),
-//   Player("Victor", 3, ["Influente", "Top", "Show"]),
-//   Player("Laura", 4, ["TopCharts", "Hits", "PríncipeDoPOP"]),
- 
-// ];
