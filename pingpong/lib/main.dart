@@ -1,60 +1,76 @@
 import 'package:flutter/material.dart';
 
-void main () {
-  runApp(const PingPong ());
+void main() {
+  runApp(const myapp());
 }
 
-class PingPong extends StatelessWidget {
-  const PingPong ({key ? key}) : super (key : key);
+// ignore: camel_case_types
+class myapp extends StatelessWidget {
+  const myapp({Key? key}) : super(key: key);
 
-Widget @override
-Widget build(BuildContext context) {
-  return MaterialApp(
-    title: 'PingPong',
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(primarySwatch: Colors.deepPurple),
-    home: const MyHomePage (),
-  );
-}
-
-}
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Atrações'),
-      ),
-      body: const Placeholder(),
+    return MaterialApp(
+      title: 'Ping Pong',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.indigo),
+      home: const MyHomePage(),
     );
   }
 }
-class Player {
-  final String nome;
-  final int dia;
-  final List<String> tags;
 
-  const Player(this.nome, this.dia, this.tags);
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-const listaAtracoes = [
-  Player("Iron Maiden", 2, ["Espetaculo", "Fas", "NovoAlbum"]),
-  Player("Alok", 3, ["Influente", "Top", "Show"]),
-  Player("Justin Bieber", 4, ["TopCharts", "Hits", "PríncipeDoPOP"]),
-  Player("Guns N’ Roses", 8, ["Sucesso", "Espetáculo", "Fas"]),
-  Player("Capital Inicial", 9, ["2019", "Novo Álbum", "Fas"]),
-  Player("Green Day", 9, ["Sucesso", "Reconhecimento", "Show"]),
-  Player("Cold Play", 10, ["NovoAlbum", "Sucesso", "2011"]),
-  Player("Ivete Sangalo", 10, ["Unica", "Carreiras", "Fas"]),
-  Player("Racionais", 3, ["Hits", "Prêmios", "Respeito"]),
-  Player("Gloria Groove", 8, ["Streams", "Representatividade", "Sucesso"]),
-  Player("Avril Lavigne", 9, ["Estreia", "Sucesso", "Lançamento"]),
-  Player("Ludmilla", 10, ["Representativade", "Sucesso", "Parcerias"]),
-];
+class _MyHomePageState extends State<MyHomePage> {
+
+@override
+  Widget build(BuildContext context) {
+    final List<String> jogadores = [
+      'Escolha um jogador'
+    ];
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Jogadores'),
+      ),     
+      body: Column(
+        children: <Widget>[
+          Text(jogadores.elementAt(0)),
+        ElevatedButton(onPressed: null, child: Text('Higor')),
+        ElevatedButton(onPressed: null, child: Text('Victor')),
+        ElevatedButton(onPressed: null, child: Text('Laura')),
+        ElevatedButton(onPressed: null, child: Text('Outro')),
+        ],
+      )
+
+
+  //    ListView.builder(
+  //       itemCount: listPlayers.length,
+  //      itemBuilder: (context, index) {
+  //  return ListTile(
+  //     title: Text(listPlayers[index].nome),
+  //   );
+  // },
+  //    ),
+    );
+  }
+}
+
+// class Player {
+//   final String nome;
+//   final int dia;
+//   final List<String> tags;
+
+//   const Player(this.nome, this.dia, this.tags);
+// }
+
+// const listPlayers = [
+//   Player("Higor", 2, ["Espetaculo", "Fas", "NovoAlbum"]),
+//   Player("Victor", 3, ["Influente", "Top", "Show"]),
+//   Player("Laura", 4, ["TopCharts", "Hits", "PríncipeDoPOP"]),
+ 
+// ];
