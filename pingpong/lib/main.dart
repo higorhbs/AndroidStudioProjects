@@ -6,24 +6,42 @@ void main() => runApp(const PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
+  final _perguntas = const [
+    {
+      'texto': 'Escolha os Jogadores',
+      'respostas': ['Higor', 'Victor', 'Laura', 'Outro'],
+    },
+
+  ];
+  int _counter = 0;
+          void _incrementCounter() {
+    setState(() {
+      _counter++;
+          print(_counter);
+    });
+
+  }
 
   void _responder() {
-    setState(() {
-      _perguntaSelecionada++;
-    });
+    if (temPerguntaSelecionada) {
+      setState(() {
+        _perguntaSelecionada++;
+      });
+    }
+  }
+
+  bool get temPerguntaSelecionada {
+    return _perguntaSelecionada < _perguntas.length;
   }
 
   @override
   Widget build(BuildContext context) {
-    final perguntas = [
-      {
-        'texto': 'Escolha seu jogador',
-        'respostas': ['Higor', 'Victor', 'Laura', 'Player Random'],
-      },
-    ];
+    List<String> respostas = temPerguntaSelecionada
+        ? _perguntas[_perguntaSelecionada]['respostas'] as List<String>
+        : [];
 
-List<String> respostas =
-        perguntas[_perguntaSelecionada]['respostas'] as List<String>;
+
+
 
 
     return MaterialApp(
@@ -31,12 +49,23 @@ List<String> respostas =
         appBar: AppBar(
           title: const Text('Ping Pong'),
         ),
-        body: Column(
-         children: [
-            Questao(perguntas[_perguntaSelecionada]['texto'] as String),
-            ...respostas.map((t) => Resposta(t, _responder)).toList(),
-          ],
-        ),
+        body: temPerguntaSelecionada
+            ? Column(
+                children: [
+                  Questao(_perguntas[_perguntaSelecionada]['texto'] as String),
+                  ...respostas.map((t) => Resposta(t, _responder)).toList(),
+                ],
+              )
+            : Center(
+            child: 
+            ElevatedButton(
+            onPressed: () {
+              _incrementCounter();
+              // Ação a ser executada quando o botão for pressionado
+            },
+            child: Icon(Icons.add), // Ícone do botão
+          ),
+            )
       ),
     );
   }
