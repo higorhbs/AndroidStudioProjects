@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './questao.dart';
+import './primeiraTela.dart';
 import './resposta.dart';
 
 void main() => runApp(const PerguntaApp());
@@ -52,7 +52,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         body: temPerguntaSelecionada
             ? Column(
                 children: [
-                  Questao(_perguntas[_perguntaSelecionada]['texto'] as String),
+                  PrimeiraTela(_perguntas[_perguntaSelecionada]['texto'] as String),
                   ...respostas.map((t) => Resposta(t, _responder)).toList(),
                 ],
               )

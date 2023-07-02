@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 
-class Questao extends StatelessWidget {
+class PrimeiraTela extends StatelessWidget {
   final String texto;
 
-  const Questao(this.texto, {super.key});
+  const PrimeiraTela(this.texto, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,9 @@ class Questao extends StatelessWidget {
       margin: const EdgeInsets.all(60),
       child: Text(
         texto,
-        style: const TextStyle(fontSize: 25),
+        style: const TextStyle(
+        fontSize: 25,
+        color: Colors.blue,),
         textAlign: TextAlign.center,
       ),
     );
