@@ -45,18 +45,30 @@ class _PerguntaAppState extends State<PerguntaApp> {
         appBar: AppBar(
           title: const Text('Ping Pong'),
         ),
-        body: temPerguntaSelecionada
-            ? Column(
-                children: [
-                  PrimeiraTela(_perguntas[_perguntaSelecionada]['texto'] as String),
-                  ...respostas.map((t) => Resposta(t, () => _responder(t))).toList(),
-                ],
-              )
-            : Jogo(jogador1: _jogador1!, jogador2: _jogador2!),
+    body: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                'Jogador 1: $_jogador1\nJogador 2: $_jogador2',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
+            temPerguntaSelecionada
+                ? Column(
+                    children: [
+                      PrimeiraTela(_perguntas[_perguntaSelecionada]['texto'] as String),
+                      ...respostas.map((t) => Resposta(t, () => _responder(t))).toList(),
+                    ],
+                  )
+                : Jogo(jogador1: _jogador1!, jogador2: _jogador2!),
+          ],
+        ),
       ),
     );
   }
 }
+
 
 class PerguntaApp extends StatefulWidget {
   const PerguntaApp({Key? key}) : super(key: key);
