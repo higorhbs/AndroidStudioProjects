@@ -16,17 +16,33 @@ class _JogoState extends State<Jogo> {
 
   void _incrementPont1() {
     setState(() {
-      _pontuacao1++;
-      print(_pontuacao1);
+     if( _pontuacao1 < 11){
+         _pontuacao1++;
+      }
+      else{
+      _pontuacao1 = 0;
+      }
     });
   }
 
   void _incrementPont2() {
     setState(() {
-      _pontuacao2++;
-      print(_pontuacao2);
+      if( _pontuacao2 < 11){
+         _pontuacao2++;
+      }
+      else{
+      _pontuacao2 = 0;
+      }
     });
   }
+
+void _zeraPont (){
+  setState(() {
+  _pontuacao1 = 0;
+   _pontuacao2 = 0;
+  });
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +51,7 @@ class _JogoState extends State<Jogo> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            widget.jogador1,
+            ' ${widget.jogador1} Pontuação: $_pontuacao1',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blue),
           ),
           ElevatedButton(
@@ -43,13 +59,18 @@ class _JogoState extends State<Jogo> {
             child: Icon(Icons.add),
           ),
           Text(
-            widget.jogador2,
+            ' ${widget.jogador2} Pontuação: $_pontuacao2',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blue),
           ),
           ElevatedButton(
             onPressed: _incrementPont2,
             child: Icon(Icons.add),
           ),
+          ElevatedButton(
+            onPressed: _zeraPont,
+            child: Icon(Icons.restore_from_trash),
+          ),
+          
         ],
       ),
     );
