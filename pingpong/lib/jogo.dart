@@ -21,6 +21,7 @@ class _JogoState extends State<Jogo> {
         _pontuacao1++;
       } else {
         _pontuacao1 = 0;
+        _pontuacao2 = 0;
       }
     });
   }
@@ -31,6 +32,7 @@ class _JogoState extends State<Jogo> {
         _pontuacao2++;
       } else {
         _pontuacao2 = 0;
+        _pontuacao1 = 0;
       }
     });
   }

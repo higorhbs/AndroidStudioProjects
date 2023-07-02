@@ -51,7 +51,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
               padding: EdgeInsets.all(16),
               child: Text(
                 'Jogador 1: $_jogador1\nJogador 2: $_jogador2',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold), 
               ),
             ),
             temPerguntaSelecionada
